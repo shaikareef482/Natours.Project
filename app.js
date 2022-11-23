@@ -14,6 +14,8 @@ const hpp = require('hpp');
 
 const cookieParser = require('cookie-parser');
 
+const compression = require('compression');
+
 const rateLimit = require('express-rate-limit');
 
 const globalErrorHandler = require('./Controllers/ErrorController') 
@@ -67,6 +69,8 @@ app.use(hpp({
 }));
 
 
+
+app.use(compression());
 app.use(express.static(`${__dirname}/public`));
 app.use(express.static(path.join(__dirname,'public')));
 // app.get('/',(req,res)=>{
